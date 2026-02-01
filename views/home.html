@@ -1,11 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/styles.css" rel="stylesheet">
     <title>Contact Form</title>
 </head>
+
 <body>
-    
+    <main>
+        <h1>Contact Form</h1>
+        <form id="contact-form">
+            <div id="personal-info">
+                <div class="input-section">
+                    <label for="fname">First Name</label>
+                    <input id="fname" name="fname" type="text">
+                </div>
+                <div class="input-section">
+                    <label for="lname">Last Name</label>
+                    <input id="lname" name="lname" type="text">
+                </div>
+                <div class="input-section">
+                    <label for="jobtitle">Job Title</label>
+                    <input id="jobtitle" name="jobtitle" type="text">
+                </div>
+                <div class="input-section">
+                    <label for="company">Company</label>
+                    <input id="company" name="company" type="text">
+                </div>
+                <div class="input-section">
+                    <label for="linkedin">LinkedIn URL</label>
+                    <input id="linkedin" name="linkedin" type="text">
+                </div>
+                <div class="input-section">
+                    <label for="email">Email Address</label>
+                    <input id="email" name="email" type="text">
+                </div>
+            </div>
+            <div id="meeting">
+                <div class="input-section">
+                    <label for="meet-method">How did we meet?</label>
+                    <select id="meet-method" name="meet-method">
+                        <option value="none">Please select</option>
+                        <option value="school">School</option>
+                        <option value="techmeet">Tech Meetup</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="input-section">
+                    <label for="other">Other (please specify)</label>
+                    <input id="other" name="other" type="text">
+                </div>
+            </div>
+            <div id="message-section" class="input-section">
+                <label for="message">Message</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+            <div id="mailing-list-section" class="input-section">
+                <label for="mailinglist"><input id="mailinglist" name="mailinglist" type="checkbox">Please add me to your mailing list</label>
+            </div>
+            <div id="email-format-section" class="input-section">
+                <h2>Choose an email format:</h2>
+                <label for="html-format"><input id="html-format" value="html-format" name="email-format" type="radio">HTML</label>
+                <label for="text-format"><input id="text-format" value="text-format" name="email-format" type="radio">Text</label>
+            </div>
+        </form>
+    </main>
 </body>
+
 </html>
