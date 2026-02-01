@@ -4,10 +4,12 @@
     --bg-color: rgb(203, 214, 214);
     --box-shadow-color: rgba(170, 179, 179, 0.5);
     --title-color: rgb(54, 54, 54);
+    --submit-color: rgb(35, 143, 82);
 }
 
 body {
     background-color: var(--bg-color);
+    margin: 4rem 0 0 0;
 }
 
 main {
@@ -88,10 +90,35 @@ input[type="checkbox"] {
     margin-left: 0;
 }
 
+input[type="submit"] {
+    background-color: var(--submit-color);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+input[type="submit"]:hover {
+    background-color: hsl(from var(--submit-color) h s 25%)
+}
+
+textarea {
+    font-family: inherit;
+    padding:1rem;
+}
+
 label,
 h2 {
     font-size: 1.1rem;
     padding-bottom: 0.5rem;
     align-items: center;
     margin: 0;
+}
+
+.err {
+    color:darkred;
+    font-weight: lighter;
+    font-size: 0.75rem;
+    display:none;
 }

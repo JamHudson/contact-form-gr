@@ -4,22 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/styles.css" rel="stylesheet">
     <title>Contact Form</title>
+    <!-- Favicon -->
+    <link rel="icon" href="images/paperson-icon.png">
+
+    <!-- Links -->
+    <link href="css/styles.css" rel="stylesheet">
+    <script defer src="js/contact-form.js"></script>
 </head>
 
 <body>
     <main>
         <h1>Contact Form</h1>
-        <form id="contact-form">
+        <form id="contact-form" action="#" method="get">
             <div id="personal-info">
                 <div class="input-section">
                     <label for="fname">First Name</label>
                     <input id="fname" name="fname" type="text">
+                    <span id="fname-err" class="err">First name is required.</span>
                 </div>
                 <div class="input-section">
                     <label for="lname">Last Name</label>
                     <input id="lname" name="lname" type="text">
+                    <span id="lname-err" class="err">Last name is required.</span>
                 </div>
                 <div class="input-section">
                     <label for="jobtitle">Job Title</label>
@@ -36,6 +43,7 @@
                 <div class="input-section">
                     <label for="email">Email Address</label>
                     <input id="email" name="email" type="text">
+                    <span id="email-err" class="err">Email is required.</span>
                 </div>
             </div>
             <div id="meeting">
@@ -47,24 +55,31 @@
                         <option value="techmeet">Tech Meetup</option>
                         <option value="other">Other</option>
                     </select>
+                    <span id="method-err" class="err">Method we met is required.</span>
                 </div>
                 <div class="input-section">
                     <label for="other">Other (please specify)</label>
                     <input id="other" name="other" type="text">
+                    <span id="other-err" class="err">Other is required when selected.</span>
                 </div>
             </div>
             <div id="message-section" class="input-section">
                 <label for="message">Message</label>
-                <textarea id="message" name="message"></textarea>
+                <textarea id="message" name="message" rows="8"></textarea>
             </div>
             <div id="mailing-list-section" class="input-section">
-                <label for="mailinglist"><input id="mailinglist" name="mailinglist" type="checkbox">Please add me to your mailing list</label>
+                <label for="mailingList"><input id="mailingList" name="mailinglist" type="checkbox">Please add me to
+                    your mailing list</label>
             </div>
             <div id="email-format-section" class="input-section">
                 <h2>Choose an email format:</h2>
-                <label for="html-format"><input id="html-format" value="html-format" name="email-format" type="radio">HTML</label>
-                <label for="text-format"><input id="text-format" value="text-format" name="email-format" type="radio">Text</label>
+                <label for="html-format"><input id="html-format" value="html-format" name="email-format"
+                        type="radio">HTML</label>
+                <label for="text-format"><input id="text-format" value="text-format" name="email-format"
+                        type="radio">Text</label>
+                <span id="format-err" class="err">Email format is required for a mailing list.</span>
             </div>
+            <input type="submit">
         </form>
     </main>
 </body>
