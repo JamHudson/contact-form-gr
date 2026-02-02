@@ -9,7 +9,12 @@
 
 body {
     background-color: var(--bg-color);
-    margin: 4rem 0 0 0;
+    min-width: 410px;
+    margin: 0;
+
+    @media only screen and (min-width: 550px) {
+        margin: min(2vw, 4rem) auto;
+    }
 }
 
 main {
@@ -19,6 +24,8 @@ main {
     background-color: white;
     padding: 1rem;
     margin: auto;
+
+
 }
 
 h1 {
@@ -33,14 +40,25 @@ form>div {
 
 #personal-info {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 2rem 2rem;
+
+
+    @media only screen and (min-width: 520px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media only screen and (min-width: 730px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 #meeting {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 2rem 2rem;
+
+    @media only screen and (min-width: 520px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 #mailing-list-section label,
@@ -105,7 +123,8 @@ input[type="submit"]:hover {
 
 textarea {
     font-family: inherit;
-    padding:1rem;
+    padding: 1rem;
+    resize:vertical;
 }
 
 label,
@@ -117,8 +136,8 @@ h2 {
 }
 
 .err {
-    color:darkred;
+    color: darkred;
     font-weight: lighter;
     font-size: 0.75rem;
-    display:none;
+    display: none;
 }
