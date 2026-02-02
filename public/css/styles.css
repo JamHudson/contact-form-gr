@@ -118,13 +118,20 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: hsl(from var(--submit-color) h s 25%)
+    transition: background-color 0.25s ease-out ;
+    background-color: hsl(from var(--submit-color) h s 25%);
+    cursor: pointer;
+}
+
+input[type="submit"]:active {
+    background-color: var(--submit-color);
+    transition: background-color 0.1s ease-out;
 }
 
 textarea {
     font-family: inherit;
     padding: 1rem;
-    resize:vertical;
+    resize: vertical;
 }
 
 label,
