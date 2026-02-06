@@ -39,11 +39,12 @@
                 <div class="input-section">
                     <label for="linkedin">LinkedIn URL</label>
                     <input id="linkedin" name="linkedin" type="text">
+                    <span id="linkedin-err" class="err">LinkedIn URL must start with "https://linkedin.com/in/".</span>
                 </div>
                 <div class="input-section">
                     <label for="email">Email Address</label>
                     <input id="email" name="email" type="text">
-                    <span id="email-err" class="err">Email is required.</span>
+                    <span id="email-err" class="err">Valid email is required.</span>
                 </div>
             </div>
             <div id="meeting">
@@ -68,7 +69,7 @@
                 <textarea id="message" name="message" rows="8"></textarea>
             </div>
             <div id="mailing-list-section" class="input-section">
-                <label for="mailingList"><input id="mailingList" name="mailinglist" type="checkbox">Please add me to
+                <label for="mailing-list"><input id="mailing-list" name="mailing-list" type="checkbox">Please add me to
                     your mailing list</label>
             </div>
             <div id="email-format-section" class="input-section">

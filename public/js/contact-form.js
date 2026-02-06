@@ -1,3 +1,39 @@
+const ValidEmailPattern = /\w{1,}@{1}\w{1,}[.]{1}\w{1,}/d;
+
+let meetMethodElement = document.getElementById("meet-method");
+let otherBoxElement = document.getElementById("other");
+
+otherBoxElement.parentElement.style.display = "none";
+
+
+meetMethodElement.oninput = onMethodChanged;
+
+function onMethodChanged() {
+    let method = meetMethodElement.value;
+    if (method == "other") {
+        otherBoxElement.parentElement.style.display = "";
+    } else {
+        otherBoxElement.parentElement.style.display = "none";
+    }
+}
+
+let mailingListElement = document.getElementById("mailing-list");
+let emailFormatSectionElement = document.getElementById("email-format-section");
+
+mailingListElement.oninput = onMailingListChanged;
+
+function onMailingListChanged() {
+    let mailingChecked = mailingListElement.checked;
+    if (mailingChecked) {
+        emailFormatSectionElement.style.display = "";
+    } else {
+        emailFormatSectionElement.style.display = "none";
+    }
+}
+
+onMethodChanged();
+onMailingListChanged();
+
 
 let contactForm = document.getElementById("contact-form");
 
@@ -16,7 +52,7 @@ function getEmailFormat() {
 
 function clearErrors() {
     let errors = document.getElementsByClassName("err");
-    for (let i=0; i<errors.length; i++) {
+    for (let i = 0; i < errors.length; i++) {
         errors[i].style.display = "none";
     }
 }
@@ -40,12 +76,23 @@ function validate() {
     }
     // Email Address is not blank
     let email = document.getElementById("email").value;
-    if (!email) {
-        document.getElementById("email-err").style.display = "block";
-        isValid = false;
+    if (email) {
+        if (!ValidEmailPattern.test(email)) {
+            document.getElementById("email-err").style.display = "block";
+            isValid = false;
+        }
     }
+    // LinkedIn is specified if not blank
+    let linkedIn = document.getElementById("linkedin").value;
+    if (linkedIn) {
+        if (!linkedIn.startsWith("https://linkedin.com/in/")) {
+            document.getElementById("linkedin-err").style.display = "block";
+            isValid = false;
+        }
+    }
+
     // How did we meet is not blank
-    let meetMethod = document.getElementById("meet-method").value;
+    let meetMethod = meetMethodElement.value;
     if (meetMethod === "none") {
         document.getElementById("method-err").style.display = "block";
         isValid = false;
@@ -60,11 +107,15 @@ function validate() {
     }
 
     // Email format is not blank ONLY if "add me to your mailing list" is visible.
-    let emailList = document.getElementById("mailingList").checked;
+    let emailList = document.getElementById("mailing-list").checked;
     if (emailList) {
         let emailFormat = getEmailFormat();
         if (emailFormat == null) {
             document.getElementById("format-err").style.display = "block";
+            isValid = false;
+        }
+        if (!email) {
+            document.getElementById("email-err").style.display = "block";
             isValid = false;
         }
     }
