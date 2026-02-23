@@ -2,12 +2,14 @@ const ValidEmailPattern = /\w{1,}@{1}\w{1,}[.]{1}\w{1,}/d;
 
 let meetMethodElement = document.getElementById("meet-method");
 let otherBoxElement = document.getElementById("other");
+let mailingListElement = document.getElementById("mailing-list");
+let emailFormatSectionElement = document.getElementById("email-format-section");
 
-otherBoxElement.parentElement.style.display = "none";
+let contactForm = document.getElementById("contact-form");
 
 
+// Reveals the "other" text box if necessary on method change.
 meetMethodElement.oninput = onMethodChanged;
-
 function onMethodChanged() {
     let method = meetMethodElement.value;
     if (method == "other") {
@@ -17,11 +19,9 @@ function onMethodChanged() {
     }
 }
 
-let mailingListElement = document.getElementById("mailing-list");
-let emailFormatSectionElement = document.getElementById("email-format-section");
 
+// Reveals the email format if mailing is checked.
 mailingListElement.oninput = onMailingListChanged;
-
 function onMailingListChanged() {
     let mailingChecked = mailingListElement.checked;
     if (mailingChecked) {
@@ -31,14 +31,7 @@ function onMailingListChanged() {
     }
 }
 
-onMethodChanged();
-onMailingListChanged();
-
-
-let contactForm = document.getElementById("contact-form");
-
-contactForm.onsubmit = validate;
-
+// Returns the selected email format.
 function getEmailFormat() {
     let emailFormat = null;
 
@@ -50,6 +43,7 @@ function getEmailFormat() {
     return emailFormat;
 }
 
+// Hides all errors.
 function clearErrors() {
     let errors = document.getElementsByClassName("err");
     for (let i = 0; i < errors.length; i++) {
@@ -57,9 +51,12 @@ function clearErrors() {
     }
 }
 
+// Form validation
+contactForm.onsubmit = validate;
 function validate() {
     let isValid = true;
 
+    // Clears existing errors.
     clearErrors();
 
     // First name is not blank
@@ -91,13 +88,13 @@ function validate() {
         }
     }
 
-    // How did we meet is not blank
+    // How we met is not blank
     let meetMethod = meetMethodElement.value;
     if (meetMethod === "none") {
         document.getElementById("method-err").style.display = "block";
         isValid = false;
     }
-    // If meet is "other", then other is not blank
+    // If method is "other", then other is not blank
     else if (meetMethod == "other") {
         let other = document.getElementById("other").value;
         if (!other) {
@@ -122,3 +119,8 @@ function validate() {
 
     return isValid;
 }
+
+// Initial call for hiding elements.
+onMethodChanged();
+onMailingListChanged();
+clearErrors();
