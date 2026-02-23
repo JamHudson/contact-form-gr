@@ -16,7 +16,7 @@
 <body>
     <main>
         <h1>Contact Form</h1>
-        <form id="contact-form" action="#" method="get">
+        <form id="contact-form" action="/submit" method="post">
             <div id="personal-info">
                 <div class="input-section">
                     <label for="fname">First Name</label>
@@ -50,7 +50,7 @@
             <div id="meeting">
                 <div class="input-section">
                     <label for="meet-method">How did we meet?</label>
-                    <select id="meet-method" name="meet-method">
+                    <select id="meet-method" name="method">
                         <option value="none">Please select</option>
                         <option value="school">School</option>
                         <option value="techmeet">Tech Meetup</option>
@@ -69,14 +69,14 @@
                 <textarea id="message" name="message" rows="8"></textarea>
             </div>
             <div id="mailing-list-section" class="input-section">
-                <label for="mailing-list"><input id="mailing-list" name="mailing-list" type="checkbox">Please add me to
+                <label for="mailing-list"><input id="mailing-list" name="mailingList" type="checkbox">Please add me to
                     your mailing list</label>
             </div>
             <div id="email-format-section" class="input-section">
                 <h2>Choose an email format:</h2>
-                <label for="html-format"><input id="html-format" value="html-format" name="email-format"
+                <label for="html-format"><input id="html-format" value="html-format" name="emailFormat"
                         type="radio">HTML</label>
-                <label for="text-format"><input id="text-format" value="text-format" name="email-format"
+                <label for="text-format"><input id="text-format" value="text-format" name="emailFormat"
                         type="radio">Text</label>
                 <span id="format-err" class="err">Email format is required for a mailing list.</span>
             </div>
