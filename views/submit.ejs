@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmation</title>
+  <!-- Favicon -->
+  <link rel="icon" href="images/paperson-icon.png">
+
+  <!-- Links -->
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<!-- 
+    const contact = {
+    fname: req.body.fname,
+    lname: req.body.lname,
+    email: req.body.email,
+    jobtitle: req.body.jobtitle,
+    company: req.body.company,
+    linkedin: req.body.linkedin,
+    method: req.body.method,
+    other: req.body.other,
+    mailinglist: req.body.mailingList,
+    emailformat: req.body.emailFormat,
+    message: req.body.message,
+    timestamp: Date()
+    };
+ -->
+
+<body>
+  <main>
+    <h1>Thank you!</h1>
+    <ul>
+      <li>Name: <%= contact.fname %> <%=contact.lname%></li>
+      <li>Email: <%= contact.email %></li>
+      <li>Occupation: <%= contact.jobtitle%></li>
+      <li>Company: <%=contact.company%></li>
+      <li>LinkedIn: <%=contact.linkedin%></li>
+      <li>How We Met: <% if (contact.method=="other") {%><%=contact.other%><%} else {%><%=contact.method%><%}%></li>
+      <li>Subscribed to Mailing List: <%=contact.mailingList%></li>
+      <li>Mailing Format: <%=contact.emailFormat%></li>
+      <li>Message: <p><%=contact.message%></p></li>
+    </ul>
+    <a href="/">Return</a>
+  </main>
+</body>
+
+</html>

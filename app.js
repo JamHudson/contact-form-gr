@@ -1,17 +1,17 @@
 import express from 'express';
 
-
 const app = express();
 
 const PORT = 3004;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
+app.set("view engine", "ejs");
 
 const contacts = [];
 
 app.get('/', (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/home.html`)
+    res.render("home");
 });
 
 app.get('/admin', (req, res) => {
@@ -19,7 +19,7 @@ app.get('/admin', (req, res) => {
 });
 
 app.post('/submit', (req, res) => {
-    const newContact = {
+    const contact = {
         fname: req.body.fname,
         lname: req.body.lname,
         email: req.body.email,
@@ -33,8 +33,9 @@ app.post('/submit', (req, res) => {
         message: req.body.message,
         timestamp: Date()
     };
-    contacts.push(newContact);
-    res.sendFile(`${import.meta.dirname}/views/submit.html`)
+    contacts.push(contact);
+
+    res.render("submit", { contact });
 });
 
 app.listen(PORT, () => {
