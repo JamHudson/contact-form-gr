@@ -11,10 +11,34 @@ body {
     background-color: var(--bg-color);
     min-width: 410px;
     margin: 0;
+}
 
-    @media only screen and (min-width: 550px) {
-        margin: min(2vw, 4rem) auto;
-    }
+header {
+    background-color: darkgreen;
+    position: absolute;
+    align-content: center;
+    width: 100vw;
+    height: 10vh;
+    top: 0;
+    margin: 0;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+}
+
+header li,
+header li a {
+    display: inline;
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.5rem;
+    padding: 1rem;
 }
 
 main {
@@ -23,9 +47,7 @@ main {
     box-shadow: 0px 0px 4px 4px var(--box-shadow-color);
     background-color: white;
     padding: 1rem;
-    margin: auto;
-
-
+    margin: 12vh auto 0 auto;
 }
 
 h1 {
@@ -118,7 +140,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    transition: background-color 0.25s ease-out ;
+    transition: background-color 0.25s ease-out;
     background-color: hsl(from var(--submit-color) h s 25%);
     cursor: pointer;
 }

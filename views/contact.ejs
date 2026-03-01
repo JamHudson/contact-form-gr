@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <!-- Favicon -->
+  <link rel="icon" href="images/paperson-icon.png">
+
+  <!-- Links -->
+  <link href="css/styles.css" rel="stylesheet">
+  <script defer src="js/contact-form.js"></script>
+</head>
+
+<body>
+  <%- include ('partials/header') %>
+
+  <main>
+    <h1>Contact Form</h1>
+    <form id="contact-form" action="/submit" method="post">
+      <div id="personal-info">
+        <div class="input-section">
+          <label for="fname">First Name</label>
+          <input id="fname" name="fname" type="text">
+          <span id="fname-err" class="err">First name is required.</span>
+        </div>
+        <div class="input-section">
+          <label for="lname">Last Name</label>
+          <input id="lname" name="lname" type="text">
+          <span id="lname-err" class="err">Last name is required.</span>
+        </div>
+        <div class="input-section">
+          <label for="jobtitle">Job Title</label>
+          <input id="jobtitle" name="jobtitle" type="text">
+        </div>
+        <div class="input-section">
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text">
+        </div>
+        <div class="input-section">
+          <label for="linkedin">LinkedIn URL</label>
+          <input id="linkedin" name="linkedin" type="text">
+          <span id="linkedin-err" class="err">LinkedIn URL must start with "https://linkedin.com/in/".</span>
+        </div>
+        <div class="input-section">
+          <label for="email">Email Address</label>
+          <input id="email" name="email" type="text">
+          <span id="email-err" class="err">Valid email is required.</span>
+        </div>
+      </div>
+      <div id="meeting">
+        <div class="input-section">
+          <label for="meet-method">How did we meet?</label>
+          <select id="meet-method" name="method">
+            <option value="none">Please select</option>
+            <option value="school">School</option>
+            <option value="techmeet">Tech Meetup</option>
+            <option value="other">Other</option>
+          </select>
+          <span id="method-err" class="err">Method we met is required.</span>
+        </div>
+        <div class="input-section">
+          <label for="other">Other (please specify)</label>
+          <input id="other" name="other" type="text">
+          <span id="other-err" class="err">Other is required when selected.</span>
+        </div>
+      </div>
+      <div id="message-section" class="input-section">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="8"></textarea>
+      </div>
+      <div id="mailing-list-section" class="input-section">
+        <label for="mailing-list"><input id="mailing-list" name="mailingList" type="checkbox">Please add me to
+          your mailing list</label>
+      </div>
+      <div id="email-format-section" class="input-section">
+        <h2>Choose an email format:</h2>
+        <label for="html-format"><input id="html-format" value="html-format" name="emailFormat" type="radio">HTML</label>
+        <label for="text-format"><input id="text-format" value="text-format" name="emailFormat" type="radio">Text</label>
+        <span id="format-err" class="err">Email format is required for a mailing list.</span>
+      </div>
+      <input type="submit">
+    </form>
+  </main>
+</body>
+
+</html>

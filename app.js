@@ -18,6 +18,10 @@ app.get('/admin', (req, res) => {
     res.render("admin",{contacts});
 });
 
+app.get('/contact', (req,res) => {
+    res.render('contact');
+});
+
 app.post('/submit', (req, res) => {
     const contact = {
         fname: req.body.fname,
