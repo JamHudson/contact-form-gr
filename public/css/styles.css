@@ -9,7 +9,7 @@
 
 body {
     background-color: var(--bg-color);
-    min-width: 410px;
+    min-width: 480px;
     margin: 0;
 }
 
@@ -17,7 +17,8 @@ header {
     background-color: darkgreen;
     position: absolute;
     align-content: center;
-    width: 100vw;
+    font-size: 1.5rem;
+    width: 100%;
     height: 10vh;
     top: 0;
     margin: 0;
@@ -37,7 +38,6 @@ header li a {
     color: white;
     text-decoration: none;
     font-weight: 800;
-    font-size: 1.5rem;
     padding: 1rem;
 }
 
@@ -174,4 +174,15 @@ h2 {
 #THE-GITHUB-LINK {
     color: black;
     font-size: 1.5rem;
+}
+
+@media only screen and (max-width:790px) {
+    header {
+        font-size: 1rem;
+    }
+
+    header li,
+    header li a {
+        padding: 0.5rem;
+    }
 }
