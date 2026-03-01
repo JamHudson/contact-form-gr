@@ -41,6 +41,11 @@ header li a {
     padding: 1rem;
 }
 
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
 main {
     max-width: 1000px;
     border-radius: 5px;
