@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/admin', (req, res) => {
-    res.send(contacts);
+    res.render("admin",{contacts});
 });
 
 app.post('/submit', (req, res) => {
