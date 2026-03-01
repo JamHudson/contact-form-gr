@@ -29,6 +29,7 @@
     };
  -->
 
+<!-- This entire page could look nicer. -->
 <body>
   <main>
     <h1>Thank you!</h1>
@@ -39,6 +40,7 @@
       <li>Company: <%=contact.company%></li>
       <li>LinkedIn: <%=contact.linkedin%></li>
       <li>How We Met: <% if (contact.method=="other") {%><%=contact.other%><%} else {%><%=contact.method%><%}%></li>
+      <!-- Make this prettier, i.e., create a new section for mailing -->
       <li>Subscribed to Mailing List: <%=contact.mailingList%></li>
       <li>Mailing Format: <%=contact.emailFormat%></li>
       <li>Message: <p><%=contact.message%></p></li>
