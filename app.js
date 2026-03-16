@@ -1,4 +1,5 @@
 import express from 'express';
+import {validateForm} from './validation.js';
 
 const app = express();
 
@@ -26,10 +27,10 @@ app.post('/submit', (req, res) => {
     const contact = {
         fname: req.body.fname,
         lname: req.body.lname,
-        email: req.body.email,
+        email: req.body.email || null,
         jobtitle: req.body.jobtitle,
         company: req.body.company,
-        linkedin: req.body.linkedin,
+        linkedin: req.body.linkedin || null,
         method: req.body.method,
         other: req.body.other,
         mailinglist: req.body.mailingList,
@@ -37,6 +38,13 @@ app.post('/submit', (req, res) => {
         message: req.body.message,
         timestamp: Date()
     };
+
+    const { isValid, errors } = validateForm(contact);
+    if (!isValid) {
+        res.render('contact', { errors });
+        return;
+    }
+
     contacts.push(contact);
 
     res.render("submit", { contact });

@@ -16,8 +16,17 @@
 <body>
   <%- include ('partials/header') %>
 
+
   <main>
     <h1>Contact Form</h1>
+    <!-- Display form errors, if they exist -->
+    <% if (typeof errors != 'undefined') {%>
+    <ul>
+      <% errors.forEach(error => { %>
+      <li><%=error%></li>
+      <%});%>
+    </ul>
+    <%}%>
     <form id="contact-form" action="/submit" method="post">
       <div id="personal-info">
         <div class="input-section">
